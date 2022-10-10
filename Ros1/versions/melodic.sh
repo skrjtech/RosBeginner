@@ -21,5 +21,9 @@ sudo apt install -y                                  \
                  libgstreamer-plugins-good1.0-dev
 
 sudo sh -c 'echo "source /opt/ros/melodic/setup.bash" >> /root/.bashrc'
+sudo rm -f /etc/ros/rosdep/sources.list.d/20-default.list
 sudo rosdep init 
 rosdep update
+sudo apt-get install python-wstool python-catkin-tools
+sudo apt update 
+
