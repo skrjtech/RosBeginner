@@ -1,36 +1,27 @@
 # ROS Versions 
-Ros1, Ros2のインストール用パッケージ\
-インストールしたいバージョンをmakeで簡単にインストールが可能
+Ros1/Ros2のインストール用パック\
+makeで簡単にインストール
 ```
-git clone https://github.com/skrjtech/ros-versions.git
-cd ros-versions
+git clone https://github.com/skrjtech/ros-installer.git
+cd ros-installer
 ```
 # Ros1 Version インストール方法
-記述例
+## Kinetic
 ```
-cd Ros1
-make rosVersion
+make ros1_kinetic_install
 ```
-### melodic
+## melodic 
 ```
-make melodic-cpu
+make ros1_melodic_install
 ```
-### melodic gpu
+## neotic
 ```
-make melodic-gpu
-```
-### neotic
-```
-make neotic-cpu
-```
-### neotic gpu
-```
-make neotic-gpu
+make ros1_neotic_install
 ```
 # Ros2 Version インストール方法
-記述例
 ```
-cd Ros2
-make rosVersion
+make ros2_ubuntu_install
 ```
-作業中
+```
+make ros2_windows_install
+```
