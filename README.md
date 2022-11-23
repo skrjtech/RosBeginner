@@ -1,27 +1,13 @@
-# ROS Versions 
-Ros1/Ros2のインストール用パック\
-makeで簡単にインストール
-```
-git clone https://github.com/skrjtech/ros-installer.git
-cd ros-installer
-```
-# Ros1 Version インストール方法
-## Kinetic
-```
-make ros1_kinetic_install
-```
-## melodic 
-```
-make ros1_melodic_install
-```
-## neotic
-```
-make ros1_neotic_install
-```
-# Ros2 Version インストール方法
-```
-make ros2_ubuntu_install
-```
-```
-make ros2_windows_install
-```
+# ROS 初心者用
+はじめとのROSで \
+・ ROSの使い方 \
+・ ROS環境で動作するロボットの作成 \
+・ ROS環境で動作テスト \
+を学びたい方に提供
+
+# [ROS INSTALL](./installer/)
+ROS Version 1・2 の インストール方法を解説している．\
+インストールファイルを準備しているので簡単にインストールできます．
+
+# [ROS PROJECTS](./projects/) 入門編~応用編
+ROSについての使用法・操作・動作を解説
