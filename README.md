@@ -13,8 +13,8 @@
 * melodic以外のインストール動作はしていません
 
 # [ROS INSTALL](./installer/)
-ROS1/ROS2 Version の インストール方法を解説している．
-インストールファイルを準備しているので簡単にインストールできます．
+ROS1/ROS2 Version の インストール方法を解説している．\
+インストールファイルを準備しているので簡単にインストールできます．\
 インストールの方法については，[installer](./installer/)からインストールできますが，[projects](./projects/)先のそれぞれのバージョンで詳しく記述しています．
 
 # [ROS PROJECTS](./projects/) 入門編~応用編
