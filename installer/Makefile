@@ -5,8 +5,8 @@ ros1_kinetic_install:
 ros1_melodic_install:
 	. Ros1/melodic/melodic_version.sh
 
-ros1_neotic_install:
-	. Ros1/neotic/neotic_version.sh
+ros1_noetic_install:
+	. Ros1/noetic/noetic_version.sh
 
 ros2_ubuntu_install:
 	. Ros2/ubuntu/ubuntu_install.sh

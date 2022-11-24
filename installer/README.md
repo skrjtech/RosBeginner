@@ -14,9 +14,9 @@ make ros1_kinetic_install
 ```
 make ros1_melodic_install
 ```
-## neotic
+## noetic
 ```
-make ros1_neotic_install
+make ros1_noetic_install
 ```
 # Ros2 Version インストール方法
 ```
