@@ -153,10 +153,9 @@ sudo apt-get install -y ros-$ROS_DISTRO-ros-tutorials
 roscore
 ```
 を立ち上げます．  
-
 roscoreが何を行っているかをrosnodeを用いて確認
 します．　　
-rosnodeは実行中のノードの情報を表示する．
+rosnodeは実行中のノードの情報を表示する．　　
 新しいターミナルを開いて
 ```
 rosnode list
@@ -183,7 +182,7 @@ rosnode info /rosout
     
     cannot contact [/stdout]: unknown node
 
-はじめは，別なノードが繋がってないので情報が出ません．
+はじめは，別なノードが繋がってないので情報が出ません．  
 新しいターミナルで
 ```
 rosrun turtlesim turtlesim_node
