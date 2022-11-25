@@ -39,6 +39,7 @@ ls
         /--- /build/
         /--- /devel/
         /--- /src/
+            /--- CMakeLists.txt
 
 注意) catkinのビルドシステムについて  
 ビルドシステムで，ワークスペースを作成する際に  
@@ -60,17 +61,18 @@ ls
 ここまでの手順を行ったら，**~/catkin_ws/devel/setup.bash** の環境変数を **~/.bashrc** に登録します.
 
 ```
-echo "source ~/catkin_ws/devel/setup.bash"
+echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 ```
 登録後に環境変数に反映させ，環境変数を確認します．
 ```
+source ~/.bashrc
 echo $ROS_PACKAGE_PATH
 ```
-以下のように
+以下のような
 
     /opt/ros/melodic/share:/home/user/catkin_ws/src
 
-出力されたらOKです．
+PATHが出力されたらOKです．
 
 ## 2. パッケージの作成
 パッケージを作成することで，作業手順を１つにまとめることができます．  
@@ -113,3 +115,15 @@ ls
                 /--- package.yml
 
 のように作成されていきます．
+
+次に作成したパッケージにスクリプトを記述してスクリプト同士の通信を行っていく前に，ノードについて解説していきます．
+
+## ノード(Node)
+[リンク](http://wiki.ros.org/ja/ROS/Tutorials/UnderstandingNodes)先を参考
+グラフの概念
+* ノード:       ノードを構築することによってノード同士を通信し合える
+* トピック:     ノードをトピックに向けて送信，逆にトピックで受信
+* メッセージ:   トピックに送受信するROSデータ型
+* マスター:     ノードが互いに検索し合うのを助けます
+* rosout:      ROS版 stdoutやstderr
+* roscore:     ノード同士を接続させる機能
