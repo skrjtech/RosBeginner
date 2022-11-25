@@ -20,6 +20,15 @@ sudo rm -rf /etc/ros/rosdep/sources.list.d/20-default.list
 rosdep update
 ```
 ここまでで初期化完了です．
+
+念の為に **~/.ros** の所有権を変更します．
+```
+sudo chown -R $USER:$USER ~/.ros
+```
+rootの場合
+```
+sudo chown -R root:root ~/.ros
+```
 ## 1. ワークスペースの作成
 Ros環境の準備ができたら，ディレクトリを作成して行きます．  
 ```
@@ -119,11 +128,131 @@ ls
 次に作成したパッケージにスクリプトを記述してスクリプト同士の通信を行っていく前に，ノードについて解説していきます．
 
 ## ノード(Node)
-[リンク](http://wiki.ros.org/ja/ROS/Tutorials/UnderstandingNodes)先を参考
-グラフの概念
-* ノード:       ノードを構築することによってノード同士を通信し合える
-* トピック:     ノードをトピックに向けて送信，逆にトピックで受信
-* メッセージ:   トピックに送受信するROSデータ型
-* マスター:     ノードが互いに検索し合うのを助けます
-* rosout:      ROS版 stdoutやstderr
-* roscore:     ノード同士を接続させる機能
+グラフの概念 ([リンク](http://wiki.ros.org/ja/ROS/Tutorials/UnderstandingNodes)先を参考)
+
+    * ノード
+        ノードを構築することによってノード同士を通信し合える
+    * トピック
+        ノードをトピックに向けて送信，逆にトピックで受信
+    * メッセージ
+        トピックに送受信するROSデータ型
+    * マスター
+        ノードが互いに検索し合うのを助けます
+    * rosout
+        ROS版 stdoutやstderr
+    * roscore
+        ノード同士を接続させる機能
+
+ノードの理解を深める為に，存在するシミュレータをインストールします．
+```
+sudo apt-get install -y ros-$ROS_DISTRO-ros-tutorials
+```
+これからノード立ち上げ行く作業を行います．  
+ノード同士の接続を行うのに
+```
+roscore
+```
+を立ち上げます．  
+
+roscoreが何を行っているかをrosnodeを用いて確認
+します．　　
+rosnodeは実行中のノードの情報を表示する．
+新しいターミナルを開いて
+```
+rosnode list
+```
+の中身を確認します．
+
+    /rosout
+
+が出力されます．  
+rosoutはノードのデバッグ出力を収集してログ化をする為に常に起動しています．  
+ノード情報を確認するには
+```
+rosnode info /rosout
+```
+で，rosoutのノード情報を確認することができます．
+
+    --------------------------------------------------------------------------------
+    Node [/rosout]
+    Publications: None
+    
+    Subscriptions: None
+    
+    Services: None
+    
+    cannot contact [/stdout]: unknown node
+
+はじめは，別なノードが繋がってないので情報が出ません．
+新しいターミナルで
+```
+rosrun turtlesim turtlesim_node
+```
+を起動します．  
+もう一度，rosnodeのリストを確認します.
+```
+rosnode list
+```
+    /rosout
+    /turtlesim
+
+が出力されます．
+次にノード情報を確認します．
+```
+rosnode info /stdout
+```
+    --------------------------------------------------------------------------------
+    Node [/rosout]
+    Publications:
+    * /rosout_agg [rosgraph_msgs/Log]
+
+    Subscriptions:
+    * /rosout [rosgraph_msgs/Log]
+
+    Services:
+    * /rosout/get_loggers
+    * /rosout/set_logger_level
+
+
+    contacting node http://d2c9887146f9:43191/ ...
+    Pid: 921
+    Connections:
+    * topic: /rosout
+        * to: /turtlesim (http://d2c9887146f9:46413/)
+        * direction: inbound (52126 - d2c9887146f9:34703) [13]
+        * transport: TCPROS
+のように出力されるはずです．  
+turtlesim のノードも確認して行きます．
+```
+rosnode info /turtlesim
+```
+    --------------------------------------------------------------------------------
+    Node [/turtlesim]
+    Publications:
+     * /rosout [rosgraph_msgs/Log]
+     * /turtle1/color_sensor [turtlesim/Color]
+     * /turtle1/pose [turtlesim/Pose]
+
+    Subscriptions:
+     * /turtle1/cmd_vel [unknown type]
+
+    Services:
+     * /clear
+     * /kill
+     * /reset
+     * /spawn
+     * /turtle1/set_pen
+     * /turtle1/teleport_absolute
+     * /turtle1/teleport_relative
+     * /turtlesim/get_loggers
+     * /turtlesim/set_logger_level
+
+
+    contacting node http://d2c9887146f9:46413/ ...
+    Pid: 1022
+    Connections:
+     * topic: /rosout
+        * to: /rosout
+        * direction: outbound (34703 - 172.18.0.2:52126) [14]
+        * transport: TCPROS
+のように出力されます．
