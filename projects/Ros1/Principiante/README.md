@@ -154,8 +154,8 @@ roscore
 ```
 を立ち上げます．  
 roscoreが何を行っているかをrosnodeを用いて確認
-します．　　
-rosnodeは実行中のノードの情報を表示する．　　
+します．  
+rosnodeは実行中のノードの情報を表示する．  
 新しいターミナルを開いて
 ```
 rosnode list
