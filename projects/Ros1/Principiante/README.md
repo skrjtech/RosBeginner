@@ -155,7 +155,7 @@ roscore
 を立ち上げます．  
 roscoreが何を行っているかをrosnodeを用いて確認
 します．  
-rosnodeは実行中のノードの情報を表示する．  
+rosnodeは実行中のノードの情報を表示します．  
 新しいターミナルを開いて
 ```
 rosnode list
@@ -195,7 +195,7 @@ rosnode list
     /rosout
     /turtlesim
 
-が出力されます．
+が出力されます．  
 次にノード情報を確認します．
 ```
 rosnode info /stdout
@@ -254,4 +254,41 @@ rosnode info /turtlesim
         * to: /rosout
         * direction: outbound (34703 - 172.18.0.2:52126) [14]
         * transport: TCPROS
-のように出力されます．
+のように出力されます．  
+これでノードがどのように接続されているかがわかります．  
+rosnode info で出力している **Publications** / **Subscriptions** / **Services** は, お互いに情報の交換を行っており，どのノードが起動されているかを確認することができます．
+
+ここで開いているすべてのターミナルを閉じます．
+
+Rosの魅力としてコマンドラインから引数を扱うことができます．
+```
+rosrun turtlesim turtlesim_node __name:=my_turtle
+```
+__nameの引数にmy_turtleを与えると，
+```
+rosnode list
+```
+で名前が変更されたノードが出力されます．
+
+    /my_turtle
+    /rosout
+
+次にノードの起動確認をします．
+```
+rosnode ping my_turtle
+```
+    rosnode: node is [/my_turtle]
+    pinging /my_turtle with a timeout of 3.0s
+    xmlrpc reply from http://d2c9887146f9:43001/    time=14.055014ms
+    xmlrpc reply from http://d2c9887146f9:43001/    time=0.494003ms
+    xmlrpc reply from http://d2c9887146f9:43001/    time=0.591993ms
+    xmlrpc reply from http://d2c9887146f9:43001/    time=0.482798ms
+
+が出力され, 起動していることがわかります．  
+起動していないときは
+
+    rosnode: node is [/my_turtle]
+    pinging /my_turtle with a timeout of 3.0s
+    ERROR: connection refused to [http://d2c9887146f9:43001/]
+
+のように出力される．
