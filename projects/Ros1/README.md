@@ -19,7 +19,7 @@ echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
 ここまでで，Ros環境の初期設定が終わる．
-# [基礎編](./beginner/) Beginner ABC
+# [基礎編](./Principiante/) ABC
 順に解説
 1. ワークスペースの作成
 2. catkin_make or catkin init
@@ -37,6 +37,11 @@ source ~/.bashrc
 14. roswtf
 15. roslaunch / launch ファイル
 16. MultiMachine
-# [応用編](./professional/) Professional
+# [応用編](./Profesional/) Professional
 順に解説
 1. ロボット設計
+2. ...
+# [マスター編](./Maestro/) Master 
+準備中
+# [神編](./Kami/) God
+準備中
