@@ -2,7 +2,7 @@
 
 sudo apt update && sudo apt -y upgrade
 sudo apt-get update && sudo apt-get -y upgrade
-sudo apt-get install -y lsb-release
+sudo apt-get install -y lsb-release gpg
 
 DistributorID=$(lsb_release -is)
 Release=$(lsb_release -rs)
