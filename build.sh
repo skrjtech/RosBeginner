@@ -8,7 +8,7 @@ DistributorID=$(lsb_release -is)
 Release=$(lsb_release -rs)
 Codename=$(lsb_release -cs)
 
-echo $DistributorID $Release $Codename
+# echo $DistributorID $Release $Codename
 
 if [ $Release = "18.04" ]; then
     . installer/RosVersion1/melodic_version.sh
