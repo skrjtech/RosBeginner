@@ -17,5 +17,5 @@ elif [ $Release = "20.04" ]; then
 elif [ $Release = "22.04" ]; then
     . installer/RosVersion2/humble_version.sh
 else
-    echo '特定のOSバージョンが見つかりません'
+    echo '特定のOSリリースが見つかりません'
 fi
