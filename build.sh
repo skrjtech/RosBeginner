@@ -11,11 +11,11 @@ Codename=$(lsb_release -cs)
 echo $DistributorID $Release $Codename
 
 if [ $Release = "18.04" ]; then
-    DEBIAN_FRONTEND=noninteractive . installer/RosVersion1/melodic_version.sh
+    . installer/RosVersion1/melodic_version.sh
 elif [ $Release = "20.04" ]; then
-    DEBIAN_FRONTEND=noninteractive . installer/RosVersion1/noetic_version.sh
+    . installer/RosVersion1/noetic_version.sh
 elif [ $Release = "22.04" ]; then
-    DEBIAN_FRONTEND=noninteractive . installer/RosVersion2/humble_version.sh
+    . installer/RosVersion2/humble_version.sh
 else
     echo '特定のOSバージョンが見つかりません'
 fi
