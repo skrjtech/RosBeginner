@@ -1,4 +1,7 @@
 #!/bin/bash
+sudo apt update && sudo apt upgrade -y
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get install -y lsb-release gpg
 export DEBIAN_FRONTEND=noninteractive
 sudo -E apt update 
 sudo apt install -y curl
