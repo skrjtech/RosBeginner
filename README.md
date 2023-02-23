@@ -18,7 +18,7 @@
 . build.sh
 ```
 
-# [ROS PROJECTS](./projects/) 入門編~応用編
+# [Ros Version 1 and 2 Projects](./projects/) 入門編~応用編
 ROSについての使用法・操作・動作を解説
 
 # エラー・原因・対処 (遭遇したときの対処法)

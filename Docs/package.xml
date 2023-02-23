@@ -1,0 +1,20 @@
+# ビルドツールの指定
+<buildtool_depend> 
+
+# ビルド時の依存の指定 CMakeLists.txtで指定したものはここで指定
+<build_depend>
+
+# ビルド依存のエクスポートの指定
+<build_export_depend>
+
+# 実行時の依存の指定 pythonノードを使用するとき注意 <run_depend> バージョン混合でエラーになる
+<exec_depend>
+
+# (<build_depend>, <build_export_depend>, <exec_depend>) の３つの指定した同等
+<depend>
+
+# テスト実行時の依存を指定
+<test_depend>
+
+# doxygen等のドキュメント作成用の依存を指定
+<doc_depend>
