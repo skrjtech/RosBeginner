@@ -68,6 +68,7 @@ ls
 解説しているRos環境のインストールについては，古めのビルドシステム(catkin_makeを用いる場合)をインストールしています．入門編では古めのバージョンで解説して行きますが，次の編では新しいバージョンのビルドシステムを使用します．現在の情報で入り混じっているところが多く見られるので，予めに古めのバージョンを知って行くことで，ビルド方法について知って行けると思います．  
 
 ここまでの手順を行ったら，**~/catkin_ws/devel/setup.bash** の環境変数を **~/.bashrc** に登録します.
+登録を行うことによりターミナルを開く際に環境変数が自動的に反映されます．
 
 ```
 echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
@@ -106,7 +107,11 @@ PATHが出力されたらOKです．
 その作業を呼び出すパッケージを作成すれば，簡単にロボットを動かすことができます．  
 パッケージを作成する際は，パッケージ内で用いるツールを依存させておく必要があります．
 
-    catkin_create_pkg <ディレクトリ名> <依存1> <依存2> <依存3> <依存N>
+    catkin_create_pkg <パッケージ名> <依存1> <依存2> <依存3> <依存N>
+
+または (最新バージョンでのcatkin) 
+
+    catkin create pkg <パッケージ名> --catkin-deps <依存1> <依存2> <依存3> <依存N>
 
 のように依存ツールを指定します．  
 実際にパッケージを作成して行きます．
@@ -132,6 +137,7 @@ ls
 
     * ノード
         ノードを構築することによってノード同士を通信し合える
+        (基本プログラムの起動のたびにノードが作成される)
     * トピック
         ノードをトピックに向けて送信，逆にトピックで受信
     * メッセージ
@@ -174,9 +180,9 @@ rosnode info /rosout
 
     --------------------------------------------------------------------------------
     Node [/rosout]
-    Publications: None
+    Publications: None (配信者)
     
-    Subscriptions: None
+    Subscriptions: None (受信者)
     
     Services: None
     
@@ -236,16 +242,15 @@ rosnode info /turtlesim
      * /turtle1/cmd_vel [unknown type]
 
     Services:
-     * /clear
-     * /kill
-     * /reset
-     * /spawn
-     * /turtle1/set_pen
-     * /turtle1/teleport_absolute
-     * /turtle1/teleport_relative
-     * /turtlesim/get_loggers
-     * /turtlesim/set_logger_level
-
+     * /clear (clear プログラムが起動されている)
+     * /kill (kill プログラムが起動されている)
+     * /reset (reset プログラムが起動されている)
+     * /spawn (spawn プログラムが起動されている)
+     * /turtle1/set_pen (set_pen プログラムが起動されている)
+     * /turtle1/teleport_absolute (teleport_absolute プログラムが起動されている)
+     * /turtle1/teleport_relative (teleport_relative プログラムが起動されている)
+     * /turtlesim/get_loggers (get_loggers プログラムが起動されている)
+     * /turtlesim/set_logger_level (set_logger_level プログラムが起動されている)
 
     contacting node http://d2c9887146f9:46413/ ...
     Pid: 1022
@@ -292,3 +297,5 @@ rosnode ping my_turtle
     ERROR: connection refused to [http://d2c9887146f9:43001/]
 
 のように出力される．
+
+# トピック(topic)について

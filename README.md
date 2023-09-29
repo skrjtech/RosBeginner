@@ -15,7 +15,7 @@
 ※ linux 上でのインストール方法
 下記のスクリプトの実行で御使用の計算機に合わせてROSバージョンがインストールがされます
 ```
-. build.sh
+. installer.sh
 ```
 
 # [Ros Version 1 and 2 Projects](./projects/) 入門編~応用編
